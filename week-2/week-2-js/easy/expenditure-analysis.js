@@ -14,7 +14,17 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const result = [];
+  const groupedCategories = Object.groupBy(transactions, (t) => t.category);
+  for (let category in groupedCategories) {
+    const total = groupedCategories[category].reduce(
+      (sum, t) => sum + t.price,
+      0
+    );
+    result.push({ category, totalSpent: total });
+  }
+  return result;
 }
+
 
 module.exports = calculateTotalSpentByCategory;
