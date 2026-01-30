@@ -7,13 +7,10 @@ Can you make it so that it updates every second, and shows time in the following
 
  - HH:MM::SS AM/PM (Eg 01:45:23 PM)*/
 
-const myInterval = setInterval(myTimer, 1000);
+setInterval(() => {
+ const date = new Date();
+ console.log(date.toLocaleTimeString());
+}, 1000);
 
-function myTimer() {
-  const date = new Date();
-  console.log(date.toLocaleTimeString());
-}
 
-function myStop() {
-  clearInterval(myInterval);
-}
+
